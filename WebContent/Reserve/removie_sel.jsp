@@ -28,6 +28,20 @@ html, body {
 	border: 0;
 }
 
+#plus {
+    font-size: 20px;
+    display: inline;
+}
+
+#n_tot {
+    display: inline;
+}
+
+#minus {
+    font-size: 20px;
+    display: inline;
+}
+
 .num {
 	width: 20px;
 	height: 20px;
@@ -68,6 +82,11 @@ html, body {
 	height: 30px;
 }
 </style>
+<script>
+window.onload = function() {
+	document.getElementById("n_tot").innerText = "5";
+} 
+</script>
 </head>
 <body>
 <div id="main" align="center">
@@ -81,6 +100,9 @@ html, body {
 <caption><%=movie%> | <%=theater%></caption>
 <p>
 <caption><%=date%> <%=time%>시</caption>
+<div id="plus">▲</div>
+<div id="n_tot"></div>
+<div id="minus">▼</div>
 <hr>
 <caption>SCREEN</caption>
 <table id="tab" width="300" align=center>
