@@ -31,15 +31,17 @@ html, body {
 #plus {
     font-size: 20px;
     display: inline;
+    cursor:pointer;
 }
 
 #n_tot {
-    display: inline;
+    display: inline;  
 }
 
 #minus {
     font-size: 20px;
     display: inline;
+    cursor:pointer;
 }
 
 .num {
@@ -47,6 +49,7 @@ html, body {
 	height: 20px;
 	border: 2px solid #380620;
 	text-align: center;
+	cursor:pointer;
 }
 
 .alpha {
@@ -67,9 +70,10 @@ html, body {
 
 #inf {
 	width: 500px;
-	height: 400px;
+	height: 480px;
 	background: #ebebeb;
 	text-align: center;
+	padding-top: 5px;
 }
 
 #main {
@@ -83,14 +87,37 @@ html, body {
 }
 </style>
 <script>
-window.onload = function() {
-	document.getElementById("n_tot").innerText = "5";
-} 
+/* window.onload = function() {
+	document.getElementById("n_tot").innerText = "n";
+} */
+	function n_change(n) {
+		var tot = parseInt(document.getElementById("n_tot").innerText);
+		
+		if (n == 0) {
+			tot++;
+			document.getElementById("n_tot").innerText = tot;
+		} 
+		else if (tot != 1) {
+			tot--;
+			document.getElementById("n_tot").innerText = tot;
+		}
+	}
+
+	function imsi(n) {
+		var s = document.getElementsByClassName("num");
+		var chk = document.cjy.seat.value;
+		if (chk != "") {
+			s[chk - 1].style.borderColor = "black";
+		}
+		document.cjy.seat.value = n;
+		s[n - 1].style.borderColor = "red";
+	}
 </script>
 </head>
 <body>
 <div id="main" align="center">
 <form method="post" name="cjy" action="removie_ok.jsp">
+<input type="hidden" name="seat">
 <input type="hidden" name="movie" value="<%=movie%>">
 <input type="hidden" name="theater" value="<%=theater%>">
 <input type="hidden" name="date" value="<%=date%>">
@@ -100,72 +127,72 @@ window.onload = function() {
 <caption><%=movie%> | <%=theater%></caption>
 <p>
 <caption><%=date%> <%=time%>시</caption>
-<div id="plus">▲</div>
-<div id="n_tot"></div>
-<div id="minus">▼</div>
+<div id="plus" onclick="n_change(0)">▲</div>
+<div id="n_tot">1</div>
+<div id="minus" onclick="n_change(1)">▼</div>
 <hr>
 <caption>SCREEN</caption>
 <table id="tab" width="300" align=center>
 <tr><td class="space"></td></tr>
 <tr>
 <td class="alpha">A</td>
-<td class="num">1</td>
-<td class="num">2</td>
+<td onclick="imsi(1)" class="num">1</td>
+<td onclick="imsi(2)" class="num">2</td>
 <td class="space"></td>
-<td class="num">3</td>
-<td class="num">4</td>
+<td onclick="imsi(3)" class="num">3</td>
+<td onclick="imsi(4)" class="num">4</td>
 <td class="space"></td>
-<td class="num">5</td>
-<td class="num">6</td>
+<td onclick="imsi(5)" class="num">5</td>
+<td onclick="imsi(6)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">B</td>
-<td class="num">1</td>
-<td class="num">2</td>
+<td onclick="imsi(7)" class="num">1</td>
+<td onclick="imsi(8)" class="num">2</td>
 <td class="space"></td>
-<td class="num">3</td>
-<td class="num">4</td>
+<td onclick="imsi(9)" class="num">3</td>
+<td onclick="imsi(10)" class="num">4</td>
 <td class="space"></td>
-<td class="num">5</td>
-<td class="num">6</td>
+<td onclick="imsi(11)" class="num">5</td>
+<td onclick="imsi(12)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">C</td>
-<td class="num">1</td>
-<td class="num">2</td>
+<td onclick="imsi(13)" class="num">1</td>
+<td onclick="imsi(14)" class="num">2</td>
 <td class="space"></td>
-<td class="num">3</td>
-<td class="num">4</td>
+<td onclick="imsi(15)" class="num">3</td>
+<td onclick="imsi(16)" class="num">4</td>
 <td class="space"></td>
-<td class="num">5</td>
-<td class="num">6</td>
+<td onclick="imsi(17)" class="num">5</td>
+<td onclick="imsi(18)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">D</td>
-<td class="num">1</td>
-<td class="num">2</td>
+<td onclick="imsi(19)" class="num">1</td>
+<td onclick="imsi(20)" class="num">2</td>
 <td class="space"></td>
-<td class="num">3</td>
-<td class="num">4</td>
+<td onclick="imsi(21)" class="num">3</td>
+<td onclick="imsi(22)" class="num">4</td>
 <td class="space"></td>
-<td class="num">5</td>
-<td class="num">6</td>
+<td onclick="imsi(23)" class="num">5</td>
+<td onclick="imsi(24)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">E</td>
-<td class="num">1</td>
-<td class="num">2</td>
+<td onclick="imsi(25)" class="num">1</td>
+<td onclick="imsi(26)" class="num">2</td>
 <td class="space"></td>
-<td class="num">3</td>
-<td class="num">4</td>
+<td onclick="imsi(27)" class="num">3</td>
+<td onclick="imsi(28)" class="num">4</td>
 <td class="space"></td>
-<td class="num">5</td>
-<td class="num">6</td>
+<td onclick="imsi(29)" class="num">5</td>
+<td onclick="imsi(30)" class="num">6</td>
 </tr>
 </table>
 <input id="sub" type="submit" value="save">
-</form>
 </div>
+</form>
 </div>
 </body>
 </html>
