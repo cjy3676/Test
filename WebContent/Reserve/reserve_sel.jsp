@@ -38,7 +38,7 @@ text-align: center;
 }
 </style>
 <script>
-function imsi(n) {
+function imsi(n) { // 좌석을 클릭할때 실행
 	var s = document.getElementsByClassName("num");
 	var chk = document.cjy.seat.value;
 	if(chk != "") {		
@@ -48,7 +48,7 @@ function imsi(n) {
 	s[n-1].style.borderColor = "red";
 }
 
-function check() {
+function check() { // DB에 예약되어 있는 내용을 불러오기
 	var seat = "<%=seat%>";
 	var arr = seat.split(",");
 	var s = document.getElementsByClassName("num");

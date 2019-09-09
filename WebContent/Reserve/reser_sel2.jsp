@@ -39,9 +39,8 @@
    }
  </style>
  <script>
- var inwon=<%=inwon%>; // 예매할 인원
- var s_inwon=0; // 선택된 인원(처음에는 0)
- function check()
+
+ function check() // DB에 예약되어 있는 내용읽어와서 체크
  {
 	   var seat="<%=seat%>"; 
 	   var arr=seat.split(","); 
@@ -54,41 +53,45 @@
 	   }
 
  }
- function imsi(n) // 좌석을 클릭할때 실행 => n값은 선택한 좌석번호
- {
- 
-	var seat=document.pkc.seat.value; // 현재 선택된 자석
+ var inwon=<%=inwon%>; // 예매할 인원
+ var s_inwon=0; //선택된 인원 
+ function imsi(n) // 좌석을 클릭할때 실행
+ {           // n값은 선택한 좌석번호
+	var n2=n+"";
+	if(n2.length==1)
+		n2="0"+n2;
+ 	var seat=document.pkc.seat.value; // 현재 선택된 좌석
 	var s=document.getElementsByClassName("ss"); // 좌석이름
-    if(s_inwon < inwon && seat.indexOf(n)==-1) // (선택될때)indexOf 값이 존재하지 않으면 -1
-    {// 선택인원, 예약할 인원
-    	seat=seat+","+n;
+    if(s_inwon < inwon && seat.indexOf(n2)==-1) 
+    {//선택인원, 예약할 인원
+    	seat=seat+","+n2;
     	document.pkc.seat.value=seat;
     	s[n-1].style.background="#dddddd";
 	    s[n-1].style.borderColor="red";
 	    s_inwon++;
 	    si.innerText=s_inwon; // 확인용
     }
-    else // 해지할때) 
+    else 
     {  
-      	if(seat.indexOf(n)!=-1) // 기존의 좌석이 선택된 경우
+      	if(seat.indexOf(n2)!=-1) // 기존의 좌석이 선택된 경우
       	{
-      	    seat=seat.replace(","+n,"");
+      	    seat=seat.replace(","+n2,"");
       		s[n-1].style.background="white";
     	    s[n-1].style.borderColor="black";
     	    s_inwon--;
-    	    si.innerText=s_inwon;
+    	    si.innerText=s_inwon; // 확인용
     	    document.pkc.seat.value=seat;
       	}
-    	
     }
- 
-	 aaa.innerHTML=seat;
+ aaa.innerHTML=seat;
+ bbb.innerHTML=seat;
  }
  </script>
 </head>
 <body onload=check()>
  신청인원:<%=inwon%> , 선택인원:<span id=si></span> <p>
- 좌석 : <span id=aaa></span> <p>
+ 좌석 : <span id=aaa></span> || 
+ document.pkc.seat.value : <span id=bbb></span><p>
  <form name=pkc method=post action=reser_ok.jsp>
   <input type=hidden name=seat> <!-- 스크립트에서 전달 -->
   <input type=hidden name=name value="<%=name%>">
