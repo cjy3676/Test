@@ -7,7 +7,7 @@
 	String bb = "root";
 	String cc = "1234";
 	Connection conn = DriverManager.getConnection(aa, bb, cc);
-	Statement stmt = conn.createStatement(); */
+	Statement stmt = conn.createStatement(); */ 
 	
 	request.setCharacterEncoding("UTF-8");
 	String movie = request.getParameter("movie");
@@ -108,28 +108,26 @@ html, body {
 		}
 	}
 
-	function check(n) {
+	function check(n3,n) {
 		//alert(tot+" "+s_tot);
 		var n2 = n + "";
 		if (n2.length == 1)
 			n2 = "0" + n2;
 		var s = document.getElementsByClassName("num"); // 좌석이름
-		var seat = document.cjy.seat.value; // 현재 선택된 자석
-		if (s_tot < tot && seat.indexOf(n2) == -1) {
-			seat = seat + "," + n2;
+		var seat2 = document.cjy.seat2.value; // 현재 선택된 자석
+		if (s_tot < tot && seat2.indexOf(n2) == -1) {
+			seat2 = seat2 + "," + n2;
 			s[n - 1].style.borderColor = "red";
 			s_tot++;
-			document.cjy.seat.value = seat;
 		} 
 		else {
-			if (seat.indexOf(n2) != -1) {
-				seat = seat.replace("," + n2, "");
+			if (seat2.indexOf(n2) != -1) {
+				seat2 = seat2.replace("," + n2, "");
 				s[n - 1].style.borderColor = "black";
 				s_tot--;
-				document.cjy.seat.value = seat;
 			}
 		}
-		document.cjy.seat.value = seat;
+		document.cjy.seat.value = n3;
 	}
 </script>
 </head>
@@ -137,6 +135,7 @@ html, body {
 <div id="main" align="center">
 <form method="post" name="cjy" action="removie_ok.jsp">
 <input type="hidden" name="seat">
+<input type="hidden" name="seat2">
 <input type="hidden" name="n_tot">
 <input type="hidden" name="id" value="<%=id%>">
 <input type="hidden" name="pwd" value="<%=pwd%>">
@@ -158,58 +157,58 @@ html, body {
 <tr><td class="space"></td></tr>
 <tr>
 <td class="alpha">A</td>
-<td onclick="check(1)" class="num">1</td>
-<td onclick="check(2)" class="num">2</td>
+<td onclick="check('A1',1)" class="num">1</td>
+<td onclick="check('A2',2)" class="num">2</td>
 <td class="space"></td>
-<td onclick="check(3)" class="num">3</td>
-<td onclick="check(4)" class="num">4</td>
+<td onclick="check('A3',3)" class="num">3</td>
+<td onclick="check('A4',4)" class="num">4</td>
 <td class="space"></td>
-<td onclick="check(5)" class="num">5</td>
-<td onclick="check(6)" class="num">6</td>
+<td onclick="check('A5',5)" class="num">5</td>
+<td onclick="check('A6',6)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">B</td>
-<td onclick="check(7)" class="num">1</td>
-<td onclick="check(8)" class="num">2</td>
+<td onclick="check('B1',7)" class="num">1</td>
+<td onclick="check('B2',8)" class="num">2</td>
 <td class="space"></td>
-<td onclick="check(9)" class="num">3</td>
-<td onclick="check(10)" class="num">4</td>
+<td onclick="check('B3',9)" class="num">3</td>
+<td onclick="check('B4',10)" class="num">4</td>
 <td class="space"></td>
-<td onclick="check(11)" class="num">5</td>
-<td onclick="check(12)" class="num">6</td>
+<td onclick="check('B5',11)" class="num">5</td>
+<td onclick="check('B6',12)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">C</td>
-<td onclick="check(13)" class="num">1</td>
-<td onclick="check(14)" class="num">2</td>
+<td onclick="check('C1',13)" class="num">1</td>
+<td onclick="check('C2',14)" class="num">2</td>
 <td class="space"></td>
-<td onclick="check(15)" class="num">3</td>
-<td onclick="check(16)" class="num">4</td>
+<td onclick="check('C3',15)" class="num">3</td>
+<td onclick="check('C4',16)" class="num">4</td>
 <td class="space"></td>
-<td onclick="check(17)" class="num">5</td>
-<td onclick="check(18)" class="num">6</td>
+<td onclick="check('C5',17)" class="num">5</td>
+<td onclick="check('C6',18)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">D</td>
-<td onclick="check(19)" class="num">1</td>
-<td onclick="check(20)" class="num">2</td>
+<td onclick="check('D1',19)" class="num">1</td>
+<td onclick="check('D2',20)" class="num">2</td>
 <td class="space"></td>
-<td onclick="check(21)" class="num">3</td>
-<td onclick="check(22)" class="num">4</td>
+<td onclick="check('D3',21)" class="num">3</td>
+<td onclick="check('D4',22)" class="num">4</td>
 <td class="space"></td>
-<td onclick="check(23)" class="num">5</td>
-<td onclick="check(24)" class="num">6</td>
+<td onclick="check('D5',23)" class="num">5</td>
+<td onclick="check('D6',24)" class="num">6</td>
 </tr>
 <tr>
 <td class="alpha">E</td>
-<td onclick="check(25)" class="num">1</td>
-<td onclick="check(26)" class="num">2</td>
+<td onclick="check('E1',25)" class="num">1</td>
+<td onclick="check('E2',26)" class="num">2</td>
 <td class="space"></td>
-<td onclick="check(27)" class="num">3</td>
-<td onclick="check(28)" class="num">4</td>
+<td onclick="check('E3',27)" class="num">3</td>
+<td onclick="check('E4',28)" class="num">4</td>
 <td class="space"></td>
-<td onclick="check(29)" class="num">5</td>
-<td onclick="check(30)" class="num">6</td>
+<td onclick="check('E5',29)" class="num">5</td>
+<td onclick="check('E6',30)" class="num">6</td>
 </tr>
 </table>
 <input id="sub" type="submit" value="save">

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>    
+<%@ page import="java.sql.*"%>
 <%
 	String aa = "jdbc:mysql://localhost:3307/reserve?useSSL=false";
 	String bb = "root";
@@ -18,7 +18,7 @@
 	String seat = request.getParameter("seat");
 	String n_tot = request.getParameter("n_tot");
 	
-	String sql = "insert into reserve_test(id,pwd,movie,theater,date,time,seat,n_tot)";
+	String sql = "insert into reserve_test2(id,pwd,movie,theater,date,time,seat,n_tot)";
 	sql = sql + " value(?,?,?,?,?,?,?,?)";
 	
 	PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -32,8 +32,13 @@
 	pstmt.setString(8, n_tot);
 	pstmt.executeUpdate();
 	
+	sql="select max(number) as number from reserve_test2";
+	pstmt = conn.prepareStatement(sql);
+	ResultSet rs=pstmt.executeQuery();
+	rs.next();
+    
+	response.sendRedirect("removie_view.jsp?number"+rs.getString("number"));
+	
 	pstmt.close();
 	conn.close();
-	
-	response.sendRedirect("removie_view.jsp");
-%>   
+%>
