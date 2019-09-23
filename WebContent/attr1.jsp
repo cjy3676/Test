@@ -9,7 +9,8 @@
 <body>
 	<%
 /* 		request, session, application
-		setAttribute(), getAttribute(), removeAttribute() */
+		setAttribute(), getAttribute(), removeAttribute() 
+		변수만들기                     변수값가져오기                변수 삭제                           */
 		
 		request.setAttribute("name", "모건 스타크");
 		session.setAttribute("name", "토니 스타크");
