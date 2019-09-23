@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-시스템이 불안정합니다. 잠시만 기다려주십시요
+시스템이 불안정합니다. 잠시만 기다려주십시요 
 </body>
 </html>

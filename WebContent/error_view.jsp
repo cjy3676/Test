@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-지금 수리 중 입니다!! 잠시만 기다려 주십쇼~
+지금 수리 중 입니다!! 잠시만 기다려 주십쇼~ 
 </body>
 </html>

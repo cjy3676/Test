@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-파일의 이름을 잘못입력하였거나 없는 파일입니다.
+파일의 이름을 잘못입력하였거나 없는 파일입니다. 
 </body>
 </html>
