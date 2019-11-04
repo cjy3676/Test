@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 	<%
 		Cookie cookie = new Cookie("name", "ironman");
         /* cookie.getName(); => name
@@ -17,5 +11,3 @@
 	    cookie.setMaxAge(300);
 		response.addCookie(cookie2);
 	%>
-</body>
-</html>
